@@ -26,7 +26,7 @@ import { isEmpty } from 'lodash-es';
 import { useAppContext } from 'providers/App/App';
 import { isModifierKeyPressed } from 'utils/app';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import OnboardingIngestionDetails from '../IngestionDetails/IngestionDetails';
 import InviteMembers from 'components/InviteMembers/InviteMembers';

@@ -13,7 +13,7 @@ import { useMemo, useState } from 'react';
 import { useInterval } from 'react-use';
 import { NANO_SECOND_MULTIPLIER } from 'store/globalTime/utils';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import PublicAutoRefresh from './PublicAutoRefresh/PublicAutoRefresh';
 import PublicSectionGrid from './PublicSectionGrid/PublicSectionGrid';

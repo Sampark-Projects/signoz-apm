@@ -21,7 +21,7 @@ import { SuccessResponseV2 } from 'types/api';
 import { Widgets } from 'types/api/dashboard/getAll';
 import { PublicDashboardDataProps } from 'types/api/dashboard/public/get';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import AutoRefresh from './AutoRefresh';
 import Panel from './Panel';

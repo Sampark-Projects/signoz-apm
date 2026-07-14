@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Modal } from 'antd';
 import { Typography } from '@signozhq/ui/typography';
@@ -7,7 +6,6 @@ import NotFound from 'components/NotFound';
 import Spinner from 'components/Spinner';
 import DashboardContainer from 'container/DashboardContainer';
 import { useDashboardBootstrap } from 'hooks/dashboard/useDashboardBootstrap';
-import { useDashboardStore } from 'providers/Dashboard/store/useDashboardStore';
 import { ErrorType } from 'types/common';
 
 function DashboardPage(): JSX.Element {
@@ -19,12 +17,6 @@ function DashboardPage(): JSX.Element {
 		dashboardId,
 		{ confirm: onModal.confirm },
 	);
-
-	const dashboardTitle = useDashboardStore((s) => s.dashboardData?.data.title);
-
-	useEffect(() => {
-		document.title = dashboardTitle || document.title;
-	}, [dashboardTitle]);
 
 	const errorMessage = isError
 		? (error as AxiosError<{ errorType: string }>)?.response?.data?.errorType

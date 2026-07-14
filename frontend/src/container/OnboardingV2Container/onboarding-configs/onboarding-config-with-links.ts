@@ -140,7 +140,7 @@ import rubyOnRailsUrl from '@/assets/Logos/ruby-on-rails.svg';
 import rustUrl from '@/assets/Logos/rust.svg';
 import s3Url from '@/assets/Logos/s3.svg';
 import scalaUrl from '@/assets/Logos/scala.svg';
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 import slogUrl from '@/assets/Logos/slog.svg';
 import slurmUrl from '@/assets/Logos/slurm.svg';
 import snowflakeUrl from '@/assets/Logos/snowflake.svg';

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Divider } from '@signozhq/ui/divider';
 import logEvent from 'api/common/logEvent';
@@ -13,7 +13,6 @@ import { CreateAlertProvider } from 'container/CreateAlertV2/context';
 import { getCreateAlertLocalStateFromAlertDef } from 'container/CreateAlertV2/utils';
 import useUrlQuery from 'hooks/useUrlQuery';
 import history from 'lib/history';
-import { useAlertRule } from 'providers/Alert';
 import { AlertTypes } from 'types/api/alerts/alertTypes';
 import { NEW_ALERT_SCHEMA_VERSION } from 'types/api/alerts/alertTypesV2';
 import { fromRuleDTOToPostableRuleV2 } from 'types/api/alerts/convert';
@@ -28,7 +27,6 @@ function AlertDetails(): JSX.Element {
 	const { pathname } = useLocation();
 	const { routes } = useRouteTabUtils();
 	const params = useUrlQuery();
-	const { alertRuleName } = useAlertRule();
 
 	const { isLoading, isError, ruleId, isValidRuleId, alertDetailsResponse } =
 		useGetAlertRuleDetails();
@@ -36,24 +34,6 @@ function AlertDetails(): JSX.Element {
 	const isTestAlert = useMemo(() => {
 		return params.get(QueryParams.isTestAlert) === 'true';
 	}, [params]);
-
-	const getDocumentTitle = useMemo(() => {
-		const alertTitle = alertRuleName ?? alertDetailsResponse?.data?.alert;
-		if (alertTitle) {
-			return alertTitle;
-		}
-		if (isTestAlert) {
-			return 'Test Alert';
-		}
-		if (isLoading) {
-			return document.title;
-		}
-		return 'Alert Not Found';
-	}, [alertRuleName, alertDetailsResponse?.data?.alert, isTestAlert, isLoading]);
-
-	useEffect(() => {
-		document.title = getDocumentTitle;
-	}, [getDocumentTitle]);
 
 	const alertRuleDetails = useMemo(
 		() =>

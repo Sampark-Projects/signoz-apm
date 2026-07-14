@@ -76,7 +76,7 @@ import { isModifierKeyPressed } from 'utils/app';
 import { showErrorNotification } from 'utils/error';
 import { openInNewTab } from 'utils/navigation';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import { useCmdK } from '../../providers/cmdKProvider';
 import { routeConfig } from './config';
@@ -249,7 +249,7 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 		isCommunityEnterpriseUser,
 	} = useGetTenantLicense();
 
-	const [licenseTag, setLicenseTag] = useState('');
+	const [, setLicenseTag] = useState('');
 	const isAdmin = user.role === USER_ROLES.ADMIN;
 	const isEditor = user.role === USER_ROLES.EDITOR;
 	const isAIAssistantEnabled = useIsAIAssistantEnabled();
@@ -335,8 +335,7 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 
 	const isLatestVersion = checkVersionState(currentVersion, latestVersion);
 
-	const [showVersionUpdateNotification, setShowVersionUpdateNotification] =
-		useState(false);
+	const [, setShowVersionUpdateNotification] = useState(false);
 
 	const [isMoreMenuCollapsed, setIsMoreMenuCollapsed] = useState(false);
 
@@ -954,14 +953,6 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 		}
 	};
 
-	const onClickVersionHandler = useCallback((): void => {
-		if (!changelog) {
-			return;
-		}
-
-		toggleChangelogModal();
-	}, [changelog, toggleChangelogModal]);
-
 	useEffect(() => {
 		if (!isLatestVersion && !isCloudUser) {
 			setShowVersionUpdateNotification(true);
@@ -1000,10 +991,14 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 									onClickHandler(ROUTES.HOME, event);
 								}}
 							>
-								<img src={signozBrandLogoUrl} alt="SigNoz" />
+								<img
+									src={isCollapsed ? '/sampark_logo.ico' : signozBrandLogoUrl}
+									alt="sampark"
+									className={cx(isCollapsed && 'collapsed')}
+								/>
 							</div>
 
-							{(licenseTag || currentVersion) && (
+							{/* {(licenseTag || currentVersion) && (
 								<div
 									className={cx(
 										'brand-title-section',
@@ -1056,7 +1051,7 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 										</Tooltip>
 									)}
 								</div>
-							)}
+							)} */}
 						</div>
 					</div>
 				</div>

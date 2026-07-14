@@ -13,16 +13,8 @@ interface FooterItem {
 const footerItems: FooterItem[] = [
 	{
 		text: 'All systems operational',
-		url: 'https://status.signoz.io/',
+		url: 'https://samparksoftwares.com',
 		statusIndicator: true,
-	},
-	{
-		text: 'Privacy',
-		url: 'https://www.signoz.io/privacy',
-	},
-	{
-		text: 'Security',
-		url: 'https://www.signoz.io/security',
 	},
 ];
 

@@ -6,7 +6,6 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQueries } from 'react-query';
 // eslint-disable-next-line no-restricted-imports
@@ -404,7 +403,6 @@ function AppLayout(props: AppLayoutProps): JSX.Element {
 	const isToDisplayLayout = isLoggedIn;
 
 	const routeKey = useMemo(() => getRouteKey(pathname), [pathname]);
-	const pageTitle = t(routeKey);
 
 	const isPublicDashboard = pathname.startsWith('/public/dashboard/');
 	const isAIAssistantPage = pathname.startsWith('/ai-assistant/');
@@ -783,10 +781,6 @@ function AppLayout(props: AppLayoutProps): JSX.Element {
 	return (
 		<TooltipProvider>
 			<Layout className={cx(isDarkMode ? 'darkMode dark' : 'lightMode')}>
-				<Helmet>
-					<title>{pageTitle}</title>
-				</Helmet>
-
 				{isLoggedIn && (
 					<div className={cx('app-banner-wrapper')}>
 						{SHOW_TRIAL_EXPIRY_BANNER && (

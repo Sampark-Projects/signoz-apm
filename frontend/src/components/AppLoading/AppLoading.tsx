@@ -3,7 +3,7 @@ import get from 'api/browser/localstorage/get';
 import { LOCALSTORAGE } from 'constants/localStorage';
 import { THEME_MODE } from 'hooks/useDarkMode/constant';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import './AppLoading.styles.scss';
 

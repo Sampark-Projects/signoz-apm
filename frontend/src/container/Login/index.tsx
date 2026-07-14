@@ -327,7 +327,7 @@ function Login(): JSX.Element {
 								id="email"
 								data-testid="email"
 								required
-								placeholder="e.g. john@signoz.io"
+								placeholder="e.g. abc@sampark.io"
 								disabled={versionLoading}
 								className="login-form-input"
 								onPressEnter={onNextHandler}

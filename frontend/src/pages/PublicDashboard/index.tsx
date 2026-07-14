@@ -6,7 +6,7 @@ import {
 } from 'hooks/dashboard/useGetResolvedPublicDashboard';
 import { Frown } from '@signozhq/icons';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 import PublicDashboardContainer from '../../container/PublicDashboardContainer';
 import PublicDashboardV2 from './PublicDashboardV2/PublicDashboardV2';

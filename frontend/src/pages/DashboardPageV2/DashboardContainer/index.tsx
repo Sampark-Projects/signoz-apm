@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 
 import type { DashboardtypesGettableDashboardV2DTO } from 'api/generated/services/sigNoz.schemas';
@@ -28,10 +27,6 @@ function DashboardContainer({
 	const spec = dashboard.spec;
 	const image = dashboard.image || Base64Icons[0];
 	const name = spec.display.name;
-
-	useEffect(() => {
-		document.title = name;
-	}, [name]);
 
 	const fullScreenHandle = useFullScreenHandle();
 
