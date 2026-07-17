@@ -1,21 +1,12 @@
 import { useMemo } from 'react';
-import { Button } from '@signozhq/ui/button';
 import { Skeleton } from 'antd';
-import logEvent from 'api/common/logEvent';
 import { useGetHosts } from 'api/generated/services/zeus';
-import ROUTES from 'constants/routes';
-import history from 'lib/history';
 import { Link2 } from '@signozhq/icons';
 import Card from 'periscope/components/Card/Card';
 import { useAppContext } from 'providers/App/App';
 import { LicensePlatform } from 'types/api/licensesV3/getActive';
-import { openInNewTab } from 'utils/navigation';
 
-import containerPlusUrl from '@/assets/Icons/container-plus.svg';
 import helloWaveUrl from '@/assets/Icons/hello-wave.svg';
-import hurrayUrl from '@/assets/Icons/hurray.svg';
-
-import { DOCS_LINKS } from '../constants';
 
 function DataSourceInfo({
 	dataSentToSigNoz,
@@ -47,16 +38,6 @@ function DataSourceInfo({
 		[activeHost],
 	);
 
-	const handleConnect = (): void => {
-		logEvent('Homepage: Connect dataSource clicked', {});
-
-		if (activeLicense && activeLicense.platform === LicensePlatform.CLOUD) {
-			history.push(ROUTES.GET_STARTED_WITH_CLOUD);
-		} else {
-			openInNewTab(DOCS_LINKS.ADD_DATA_SOURCE);
-		}
-	};
-
 	const renderNotSendingData = (): JSX.Element => (
 		<>
 			<h2 className="welcome-title">
@@ -69,7 +50,7 @@ function DataSourceInfo({
 				data to Sampark.
 			</p>
 
-			<Card className="welcome-card">
+			{/* <Card className="welcome-card">
 				<Card.Content>
 					<div className="workspace-ready-container">
 						<div className="workspace-ready-header">
@@ -102,7 +83,7 @@ function DataSourceInfo({
 						)}
 					</div>
 				</Card.Content>
-			</Card>
+			</Card> */}
 		</>
 	);
 

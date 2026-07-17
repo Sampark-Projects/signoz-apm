@@ -77,6 +77,7 @@ import { showErrorNotification } from 'utils/error';
 import { openInNewTab } from 'utils/navigation';
 
 import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
+import samparkBrandLogoUrl from '@/assets/sampark_logo.png';
 
 import { useCmdK } from '../../providers/cmdKProvider';
 import { routeConfig } from './config';
@@ -992,7 +993,7 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 								}}
 							>
 								<img
-									src={isCollapsed ? '/sampark_logo.ico' : signozBrandLogoUrl}
+									src={isCollapsed ? samparkBrandLogoUrl : signozBrandLogoUrl}
 									alt="sampark"
 									className={cx(isCollapsed && 'collapsed')}
 								/>
