@@ -1,12 +1,10 @@
 import { Button } from '@signozhq/ui/button';
 import { DialogWrapper } from '@signozhq/ui/dialog';
 import { Typography } from '@signozhq/ui/typography';
-import { ArrowUpRight, Copy, RotateCw } from '@signozhq/icons';
+import { Copy, RotateCw } from '@signozhq/icons';
 import { useCopyToClipboard } from 'react-use';
 import { toast } from '@signozhq/ui/sonner';
 import logEvent from 'api/common/logEvent';
-import { handleContactSupport } from 'container/Integrations/utils';
-import { useGetTenantLicense } from 'hooks/useGetTenantLicense';
 import { DashboardListEvents } from 'pages/DashboardsListPageV2/constants/events';
 
 import { useRetryMigration } from '../../hooks/useRetryMigration';
@@ -35,7 +33,6 @@ function LegacyDashboardDialog({
 	onClose,
 }: LegacyDashboardDialogProps): JSX.Element {
 	const [, copyToClipboard] = useCopyToClipboard();
-	const { isCloudUser } = useGetTenantLicense();
 	const { retryMigration, isMigrating } = useRetryMigration(onClose);
 
 	const onCopyId = (): void => {
@@ -43,14 +40,6 @@ function LegacyDashboardDialog({
 		toast.success('Dashboard ID copied');
 		void logEvent(DashboardListEvents.LegacyDialogAction, {
 			action: 'copyId',
-			dashboardId,
-		});
-	};
-
-	const onContactSupport = (): void => {
-		handleContactSupport(!!isCloudUser);
-		void logEvent(DashboardListEvents.LegacyDialogAction, {
-			action: 'contactSupport',
 			dashboardId,
 		});
 	};
@@ -85,7 +74,7 @@ function LegacyDashboardDialog({
 					>
 						Close
 					</Button>
-					<Button
+					{/* <Button
 						variant={canEdit ? 'outlined' : 'solid'}
 						color={canEdit ? 'secondary' : 'primary'}
 						size="md"
@@ -94,7 +83,7 @@ function LegacyDashboardDialog({
 						testId="legacy-dashboard-contact-support"
 					>
 						Contact Support
-					</Button>
+					</Button> */}
 					{canEdit && (
 						<Button
 							variant="solid"

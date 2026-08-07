@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 
 import type { DashboardtypesGettableDashboardV2DTO } from 'api/generated/services/sigNoz.schemas';
@@ -27,10 +28,6 @@ function DashboardContainer({
 	const spec = dashboard.spec;
 	const image = resolveDashboardImage(dashboard.image);
 	const name = spec.display.name;
-
-	useEffect(() => {
-		document.title = name;
-	}, [name]);
 
 	// Store is app-level and outlives the page: clear transient variable fetch state on
 	// unmount so the next visit doesn't inherit stale states / climbing cycle ids.
