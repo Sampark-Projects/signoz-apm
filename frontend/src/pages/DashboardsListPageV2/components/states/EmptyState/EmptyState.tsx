@@ -1,20 +1,20 @@
 import { ReactNode } from 'react';
-import { Button } from '@signozhq/ui/button';
+// import { Button } from '@signozhq/ui/button';
 import { Typography } from '@signozhq/ui/typography';
-import { ArrowUpRight } from '@signozhq/icons';
-import logEvent from 'api/common/logEvent';
+// import { ArrowUpRight } from '@signozhq/icons';
+// import logEvent from 'api/common/logEvent';
 
 import dashboardsUrl from '@/assets/Icons/dashboards.svg';
 
 import styles from './EmptyState.module.scss';
-import { openInNewTab } from 'utils/navigation';
+// import { openInNewTab } from 'utils/navigation';
 
 interface Props {
 	createDropdown?: ReactNode;
 }
 
-const LEARN_MORE_HREF =
-	'https://signoz.io/docs/userguide/manage-dashboards?utm_source=product&utm_medium=dashboard-list-empty-state';
+// const LEARN_MORE_HREF =
+// 	'https://signoz.io/docs/userguide/manage-dashboards?utm_source=product&utm_medium=dashboard-list-empty-state';
 
 function EmptyState({ createDropdown }: Props): JSX.Element {
 	return (
@@ -32,7 +32,7 @@ function EmptyState({ createDropdown }: Props): JSX.Element {
 			{createDropdown ? (
 				<section className={styles.actions}>
 					{createDropdown}
-					<Button
+					{/* <Button
 						variant="link"
 						color="primary"
 						className={styles.learnMore}
@@ -43,8 +43,8 @@ function EmptyState({ createDropdown }: Props): JSX.Element {
 						}}
 					>
 						Learn more
-					</Button>
-					<ArrowUpRight size={16} className={styles.learnMoreArrow} />
+					</Button> */}
+					{/* <ArrowUpRight size={16} className={styles.learnMoreArrow} /> */}
 				</section>
 			) : null}
 		</div>
