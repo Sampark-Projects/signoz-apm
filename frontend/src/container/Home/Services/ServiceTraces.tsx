@@ -8,7 +8,7 @@ import ROUTES from 'constants/routes';
 import { useQueryService } from 'hooks/useQueryService';
 import { useSafeNavigate } from 'hooks/useSafeNavigate';
 import history from 'lib/history';
-import { ArrowRight, ArrowUpRight } from '@signozhq/icons';
+import { ArrowRight } from '@signozhq/icons';
 import Card from 'periscope/components/Card/Card';
 import { useAppContext } from 'providers/App/App';
 import { AppState } from 'store/reducers';
@@ -143,7 +143,7 @@ export default function ServiceTraces({
 								Get Started &nbsp; <ArrowRight size={16} />
 							</Button>
 
-							<Button
+							{/* <Button
 								type="link"
 								className="learn-more-link"
 								onClick={(): void => {
@@ -157,7 +157,7 @@ export default function ServiceTraces({
 								}}
 							>
 								Learn more <ArrowUpRight size={12} />
-							</Button>
+							</Button> */}
 						</div>
 					)}
 				</div>

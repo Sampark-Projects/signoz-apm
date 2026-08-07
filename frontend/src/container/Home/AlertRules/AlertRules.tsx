@@ -9,7 +9,7 @@ import { QueryParams } from 'constants/query';
 import ROUTES from 'constants/routes';
 import history from 'lib/history';
 import { mapQueryDataFromApi } from 'lib/newQueryBuilder/queryBuilderMappers/mapQueryDataFromApi';
-import { ArrowRight, ArrowUpRight, Plus } from '@signozhq/icons';
+import { ArrowRight, Plus } from '@signozhq/icons';
 import Card from 'periscope/components/Card/Card';
 import { useAppContext } from 'providers/App/App';
 import { toCompositeMetricQuery } from 'types/api/alerts/convert';
@@ -101,7 +101,7 @@ export default function AlertRules({
 							</Button>
 						</Link>
 
-						<Button
+						{/* <Button
 							type="link"
 							className="learn-more-link"
 							onClick={(): void => {
@@ -117,7 +117,7 @@ export default function AlertRules({
 							}}
 						>
 							Learn more <ArrowUpRight size={12} />
-						</Button>
+						</Button> */}
 					</div>
 				)}
 			</div>

@@ -35,7 +35,7 @@ import {
 import { Base64Icons } from 'container/DashboardContainer/DashboardSettings/General/utils';
 // #TODO: lucide will be removing brand icons like Github in future, in that case we can use simple icons
 // see more: https://github.com/lucide-icons/lucide/issues/94
-import { handleContactSupport } from 'container/Integrations/utils';
+// import { handleContactSupport } from 'container/Integrations/utils';
 import dayjs from 'dayjs';
 import useDashboardsListQueryParams from 'hooks/dashboard/useDashboardsListQueryParams';
 import { useGetAllDashboard } from 'hooks/dashboard/useGetAllDashboard';
@@ -46,7 +46,6 @@ import { useSafeNavigate } from 'hooks/useSafeNavigate';
 import { get, isEmpty, isUndefined } from 'lodash-es';
 import {
 	ArrowDownWideNarrow,
-	ArrowUpRight,
 	CalendarClock,
 	Check,
 	Clock4,
@@ -61,7 +60,6 @@ import {
 	Link2,
 	Plus,
 	Radius,
-	RotateCw,
 	Search,
 	SquareArrowOutUpRight,
 } from '@signozhq/icons';
@@ -91,6 +89,7 @@ import {
 	DashboardDynamicColumns,
 	DynamicColumns,
 	filterDashboards,
+	normalizeDashboardTags,
 } from './utils';
 
 import styles from './DashboardActions.module.scss';
@@ -226,7 +225,7 @@ function DashboardsList(): JSX.Element {
 		id: e.id,
 		lastUpdatedTime: e.updatedAt,
 		name: e.data.title,
-		tags: e.data.tags || [],
+		tags: normalizeDashboardTags(e.data.tags),
 		key: e.id,
 		createdBy: e.createdBy,
 		isLocked: !!e.locked || false,
@@ -669,7 +668,7 @@ function DashboardsList(): JSX.Element {
 						<Typography.Text className="error-text">
 							Something went wrong :/ Please retry or contact support.
 						</Typography.Text>
-						<section className="action-btns">
+						{/* <section className="action-btns">
 							<Button
 								className="retry-btn"
 								type="text"
@@ -686,7 +685,7 @@ function DashboardsList(): JSX.Element {
 								Contact Support
 							</Button>
 							<ArrowUpRight size={16} className="learn-more-arrow" />
-						</section>
+						</section> */}
 					</div>
 				) : dashboards.length === 0 && !searchString ? (
 					<div className="dashboard-empty-state">
@@ -719,7 +718,7 @@ function DashboardsList(): JSX.Element {
 										New Dashboard
 									</Button>
 								</DropdownMenuSimple>
-								<Button
+								{/* <Button
 									type="text"
 									className="learn-more"
 									data-testid="learn-more"
@@ -732,7 +731,7 @@ function DashboardsList(): JSX.Element {
 								>
 									Learn more
 								</Button>
-								<ArrowUpRight size={16} className="learn-more-arrow" />
+								<ArrowUpRight size={16} className="learn-more-arrow" /> */}
 							</section>
 						)}
 					</div>

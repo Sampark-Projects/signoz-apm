@@ -17,7 +17,7 @@ import useResourceAttribute from 'hooks/useResourceAttribute';
 import { convertRawQueriesToTraceSelectedTags } from 'hooks/useResourceAttribute/utils';
 import { useSafeNavigate } from 'hooks/useSafeNavigate';
 import history from 'lib/history';
-import { ArrowRight, ArrowUpRight } from '@signozhq/icons';
+import { ArrowRight } from '@signozhq/icons';
 import Card from 'periscope/components/Card/Card';
 import { useAppContext } from 'providers/App/App';
 import { IUser } from 'providers/App/types';
@@ -87,7 +87,7 @@ const EmptyState = memo(
 							Get Started &nbsp; <ArrowRight size={16} />
 						</Button>
 
-						<Button
+						{/* <Button
 							type="link"
 							className="learn-more-link"
 							onClick={(): void => {
@@ -101,7 +101,7 @@ const EmptyState = memo(
 							}}
 						>
 							Learn more <ArrowUpRight size={12} />
-						</Button>
+						</Button> */}
 					</div>
 				)}
 			</div>

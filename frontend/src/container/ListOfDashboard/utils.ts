@@ -1,5 +1,18 @@
 import { Dashboard, DashboardTemplate } from 'types/api/dashboard/getAll';
 
+// Tags may come back as `{key, value}` objects even though the
+// Dashboard type declares them as strings; normalise defensively.
+export const normalizeDashboardTags = (
+	tags: Dashboard['data']['tags'],
+): string[] =>
+	(tags ?? []).map((tag) => {
+		if (typeof tag === 'string') {
+			return tag;
+		}
+		const tagObj = tag as unknown as { key: string; value?: string };
+		return tagObj.value ? `${tagObj.key}:${tagObj.value}` : tagObj.key;
+	});
+
 export const filterDashboards = (
 	searchValue: string,
 	dashboardList: Dashboard[],
@@ -12,7 +25,7 @@ export const filterDashboards = (
 		const itemValuesNew = [title, description];
 
 		if (tags && tags.length > 0) {
-			itemValuesNew.push(...tags);
+			itemValuesNew.push(...normalizeDashboardTags(tags));
 		}
 
 		// Check if any property value contains the searchValue

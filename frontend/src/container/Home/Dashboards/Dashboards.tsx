@@ -12,7 +12,7 @@ import ROUTES from 'constants/routes';
 import { useGetAllDashboard } from 'hooks/dashboard/useGetAllDashboard';
 import { useIsDashboardV2 } from 'hooks/useIsDashboardV2';
 import { useSafeNavigate } from 'hooks/useSafeNavigate';
-import { ArrowRight, ArrowUpRight, Plus } from '@signozhq/icons';
+import { ArrowRight, Plus } from '@signozhq/icons';
 import Card from 'periscope/components/Card/Card';
 import { useAppContext } from 'providers/App/App';
 import { USER_ROLES } from 'types/roles';
@@ -20,6 +20,7 @@ import { openInNewTab } from 'utils/navigation';
 
 import dialsUrl from '@/assets/Icons/dials.svg';
 
+import { normalizeDashboardTags } from '../../ListOfDashboard/utils';
 import { getItemIcon } from '../constants';
 
 // The five most-recent dashboards, normalised across the v1 and v2 list APIs.
@@ -81,7 +82,7 @@ export default function Dashboards({
 			.map((d) => ({
 				id: d.id,
 				title: d.data.title,
-				tags: d.data.tags ?? [],
+				tags: normalizeDashboardTags(d.data.tags),
 			}));
 	}, [isDashboardV2, v1List, v2List]);
 
@@ -119,7 +120,7 @@ export default function Dashboards({
 							</Button>
 						</Link>
 
-						<Button
+						{/* <Button
 							type="link"
 							className="learn-more-link"
 							onClick={(): void => {
@@ -133,7 +134,7 @@ export default function Dashboards({
 							}}
 						>
 							Learn more <ArrowUpRight size={12} />
-						</Button>
+						</Button> */}
 					</div>
 				)}
 			</div>

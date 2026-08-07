@@ -19,7 +19,6 @@ import floppyDiscUrl from '@/assets/Icons/floppy-disc.svg';
 import { getItemIcon } from '../constants';
 import {
 	ArrowRight,
-	ArrowUpRight,
 	BarChart,
 	Compass,
 	DraftingCompass,
@@ -191,7 +190,7 @@ export default function SavedViews({
 							</Button>
 						</Link>
 
-						<Button
+						{/* <Button
 							type="link"
 							className="learn-more-link"
 							onClick={(): void => {
@@ -208,7 +207,7 @@ export default function SavedViews({
 							}}
 						>
 							Learn more <ArrowUpRight size={12} />
-						</Button>
+						</Button> */}
 					</div>
 				)}
 			</div>
