@@ -24,6 +24,7 @@ import logEvent from 'api/common/logEvent';
 import ConfigureIcon from 'assets/Integrations/ConfigureIcon';
 import { PANEL_GROUP_TYPES, PANEL_TYPES } from 'constants/queryBuilder';
 import { DeleteButton } from 'container/ListOfDashboard/TableComponents/DeleteButton';
+import { normalizeDashboardTags } from 'container/ListOfDashboard/utils';
 import DateTimeSelectionV2 from 'container/TopNav/DateTimeSelectionV2';
 import { useDashboardVariables } from 'hooks/dashboard/useDashboardVariables';
 import { useGetPublicDashboardMeta } from 'hooks/dashboard/useGetPublicDashboardMeta';
@@ -103,9 +104,11 @@ function DashboardDescription(props: DashboardDescriptionProps): JSX.Element {
 	const {
 		title = '',
 		description,
-		tags,
+		tags: rawTags,
 		image = Base64Icons[0],
 	} = selectedData || {};
+
+	const tags = normalizeDashboardTags(rawTags);
 
 	const [updatedTitle, setUpdatedTitle] = useState<string>(title);
 
@@ -506,9 +509,9 @@ function DashboardDescription(props: DashboardDescriptionProps): JSX.Element {
 					)}
 				</div>
 			</section>
-			{(tags?.length || 0) > 0 && (
+			{tags.length > 0 && (
 				<div className="dashboard-tags">
-					{tags?.map((tag) => (
+					{tags.map((tag) => (
 						<Badge key={tag} className="tag" color="vanilla">
 							{tag}
 						</Badge>

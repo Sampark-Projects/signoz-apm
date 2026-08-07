@@ -4,6 +4,7 @@ import { Col, Input, Select, Space, Tooltip } from 'antd';
 import { ToggleGroupSimple } from '@signozhq/ui/toggle-group';
 import { Typography } from '@signozhq/ui/typography';
 import AddTags from 'container/DashboardContainer/DashboardSettings/General/AddBadges';
+import { normalizeDashboardTags } from 'container/ListOfDashboard/utils';
 import { useDashboardCursorSyncMode } from 'hooks/dashboard/useDashboardCursorSyncMode';
 import { useSyncTooltipFilterMode } from 'hooks/dashboard/useSyncTooltipFilterMode';
 import { useUpdateDashboard } from 'hooks/dashboard/useUpdateDashboard';
@@ -40,10 +41,12 @@ function GeneralDashboardSettings(): JSX.Element {
 
 	const {
 		title = '',
-		tags = [],
+		tags: rawTags,
 		description = '',
 		image = Base64Icons[0],
 	} = selectedData || {};
+
+	const tags = normalizeDashboardTags(rawTags);
 
 	const [updatedTitle, setUpdatedTitle] = useState<string>(title);
 	const [updatedTags, setUpdatedTags] = useState<string[]>(tags || []);

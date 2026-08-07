@@ -1,9 +1,6 @@
-import { useCallback } from 'react';
 import { Button } from 'antd';
 import ROUTES from 'constants/routes';
-import { handleContactSupport } from 'container/Integrations/utils';
-import { useGetTenantLicense } from 'hooks/useGetTenantLicense';
-import { Home, LifeBuoy } from '@signozhq/icons';
+import { Home } from '@signozhq/icons';
 import { withBasePath } from 'utils/basePath';
 
 import cloudUrl from '@/assets/Images/cloud.svg';
@@ -15,12 +12,6 @@ function ErrorBoundaryFallback(): JSX.Element {
 		// Hard reload resets Sentry.ErrorBoundary state; withBasePath preserves any /signoz/ prefix.
 		window.location.href = withBasePath(ROUTES.HOME);
 	};
-
-	const { isCloudUser: isCloudUserVal } = useGetTenantLicense();
-
-	const handleSupport = useCallback(() => {
-		handleContactSupport(isCloudUserVal);
-	}, [isCloudUserVal]);
 
 	return (
 		<div className="error-boundary-fallback-container">
@@ -45,14 +36,14 @@ function ErrorBoundaryFallback(): JSX.Element {
 						Go to Home
 					</Button>
 
-					<Button
+					{/* <Button
 						className="periscope-btn secondary"
 						type="default"
 						onClick={handleSupport}
 						icon={<LifeBuoy size={16} />}
 					>
 						Contact Support
-					</Button>
+					</Button> */}
 				</div>
 			</div>
 		</div>
