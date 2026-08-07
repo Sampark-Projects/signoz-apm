@@ -103,6 +103,7 @@ function AppLayout(props: AppLayoutProps): JSX.Element {
 		isFetchingFeatureFlags,
 		featureFlagsFetchError,
 		userPreferences,
+		isFetchingUserPreferences,
 		updateChangelog,
 		toggleChangelogModal,
 		showChangelogModal,
@@ -722,12 +723,12 @@ function AppLayout(props: AppLayoutProps): JSX.Element {
 		}
 	}, []);
 
-	// Set sidebar as loaded after user preferences are fetched
+	// Set sidebar as loaded after user preferences fetch completes (success or error)
 	useEffect(() => {
-		if (userPreferences !== null) {
+		if (!isFetchingUserPreferences) {
 			setIsSidebarLoaded(true);
 		}
-	}, [userPreferences]);
+	}, [isFetchingUserPreferences]);
 
 	// Use localStorage value as fallback until preferences are loaded
 	const isSideNavPinned = isSidebarLoaded
